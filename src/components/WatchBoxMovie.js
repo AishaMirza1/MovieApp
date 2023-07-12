@@ -1,7 +1,8 @@
-export default function WatchBoxMovie({movie}){
+export default function WatchBoxMovie({movie,onDeleteWatched}){
+   
     return(
         <li key={movie.imdbID}>
-        <img src={movie.Poster} alt={`${movie.Title} poster`} />
+        <img src={movie.poster} alt={`${movie.title} poster`} />
         <h3>{movie.Title}</h3>
         <div>
           <p>
@@ -16,6 +17,7 @@ export default function WatchBoxMovie({movie}){
             <span>⏳</span>
             <span>{movie.runtime} min</span>
           </p>
+          <button onClick={()=>onDeleteWatched(movie.title)} className="btn-delete">X</button>
         </div>
       </li>
     )
